@@ -13,8 +13,8 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             Console.Write("Please enter the number of miles: ");
-            int miles = Convert.ToInt16(Console.ReadLine());
-            int feet = miles * 5280;
+            double miles = Convert.ToDouble(Console.ReadLine());
+            double feet = miles * 5280;
             Console.WriteLine("There are " + feet + " feet in " + miles + " miles.");
         } 
     }
