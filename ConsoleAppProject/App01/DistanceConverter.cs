@@ -12,7 +12,7 @@ namespace ConsoleAppProject.App01
     {
         const int mTOf = 5280;
         bool exit = false;
-        int choice;
+        string choice;
         double miles;
         double feet;
 
@@ -21,21 +21,21 @@ namespace ConsoleAppProject.App01
             while(exit == false){
                 Menu();
             
-                if (choice == 1){
+                if (string.Equals(choice, "1")){
                     InputMiles();
                     ConvertMilesToFeet();
                     OutputFeet();
                     Console.WriteLine("");
                 }
             
-                else if (choice == 2){
+                else if (string.Equals(choice, "2")){
                     InputFeet();
                     ConvertFeetToMiles();
                     OutputMiles();
                     Console.WriteLine("");
                 }
 
-                else if (choice == 3){
+                else if (string.Equals(choice, "3")){
                     exit = true;
                     Console.WriteLine("Exiting Converter\n");
                 }
@@ -49,7 +49,7 @@ namespace ConsoleAppProject.App01
         public void Menu()
         {
             Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles and enter 3 to exit the converter: ");
-            choice = Convert.ToInt32(Console.ReadLine());
+            choice = Console.ReadLine();
         }
         
         public void InputMiles()
