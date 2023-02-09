@@ -14,27 +14,39 @@ namespace ConsoleAppProject.App01
         int choice;
         double miles;
         double feet;
+        bool exit = false;
 
         public void Run()
         {
-            Menu();
+            while(exit == false){
+                Menu();
             
-            if (choice == 1){
-                InputMiles();
-                ConvertMilesToFeet();
-                OutputFeet();
-            }
+                if (choice == 1){
+                    InputMiles();
+                    ConvertMilesToFeet();
+                    OutputFeet();
+                }
             
-            else if (choice == 2){
-                InputFeet();
-                ConvertFeetToMiles();
-                OutputMiles();
+                else if (choice == 2){
+                    InputFeet();
+                    ConvertFeetToMiles();
+                    OutputMiles();
+                }
+
+                else if (choice == 3){
+                    exit = true;
+                    Console.WriteLine("Exiting Converter");
+                }
+
+                else{
+                    Console.Write("Invalid option. ");
+                }
             }
         }
 
         public void Menu()
         {
-            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles: ");
+            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles and enter 3 to exit the converter: ");
             choice = Convert.ToInt32(Console.ReadLine());
         }
         
