@@ -16,9 +16,9 @@ namespace ConsoleAppProject.App01
         bool exit = false;
         string convertFrom;
         string convertTo;
-        double miles = 1;
-        double feet = 1;
-        double metres = 1;
+        double miles;
+        double feet;
+        double metres;
 
         public void Run()
         {
