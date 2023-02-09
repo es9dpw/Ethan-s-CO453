@@ -38,7 +38,7 @@ namespace ConsoleAppProject.App01
                         OutputMilesToFeet();
                     }
                     else{
-                        Console.Write("\nInvalid option. ");
+                        Console.WriteLine("Invalid option.\n");
                     }
                 }
             
@@ -55,7 +55,7 @@ namespace ConsoleAppProject.App01
                         OutputMetresToFeet();
                     }
                     else{
-                        Console.Write("\nInvalid option. ");
+                        Console.WriteLine("Invalid option.\n");
                     }
                 }
 
@@ -72,17 +72,17 @@ namespace ConsoleAppProject.App01
                         OutputFeetToMetres();
                     }
                     else{
-                        Console.Write("\nInvalid option. ");
+                        Console.WriteLine("Invalid option.\n");
                     }
                 }
 
                 else if (string.Equals(convertFrom, "")){
                     exit = true;
-                    Console.WriteLine("Exiting Converter\n");
+                    Console.WriteLine("Exiting Converter...\n");
                 }
 
                 else{
-                    Console.Write("\nInvalid option. ");
+                    Console.WriteLine("Invalid option.\n");
                 }
             }
         }
