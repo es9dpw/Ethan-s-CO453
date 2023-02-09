@@ -11,9 +11,9 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         const int mTOf = 5280;
-        int choice = 0;
-        double miles = 0;
-        double feet = 0;
+        int choice;
+        double miles;
+        double feet;
 
         public void Run()
         {
