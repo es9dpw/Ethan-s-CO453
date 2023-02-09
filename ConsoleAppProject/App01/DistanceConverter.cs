@@ -35,7 +35,7 @@ namespace ConsoleAppProject.App01
                     Console.WriteLine("");
                 }
 
-                else if (string.Equals(choice, "3")){
+                else if (string.Equals(choice, "")){
                     exit = true;
                     Console.WriteLine("Exiting Converter\n");
                 }
@@ -48,7 +48,7 @@ namespace ConsoleAppProject.App01
 
         public void Menu()
         {
-            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles and enter 3 to exit the converter: ");
+            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles or enter nothing to exit the converter: ");
             choice = Console.ReadLine();
         }
         
