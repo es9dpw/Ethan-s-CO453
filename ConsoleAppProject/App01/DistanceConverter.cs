@@ -27,12 +27,14 @@ namespace ConsoleAppProject.App01
             
                 if (string.Equals(convertFrom, "Miles")){
                     ConvertTo();
-                    InputMiles();
-                    ConvertMiles();
                     if (string.Equals(convertTo, "Metres")){
+                        InputMiles();
+                        ConvertMiles();
                         OutputMilesToMetres();
                     }
                     else if (string.Equals(convertTo, "Feet")){
+                        InputMiles();
+                        ConvertMiles();
                         OutputMilesToFeet();
                     }
                     else{
@@ -42,12 +44,14 @@ namespace ConsoleAppProject.App01
             
                 else if (string.Equals(convertFrom, "Metres")){
                     ConvertTo();
-                    InputMetres();
-                    ConvertMetres();
                     if (string.Equals(convertTo, "Miles")){
+                        InputMetres();
+                        ConvertMetres();
                         OutputMetresToMiles();
                     }
                     else if (string.Equals(convertTo, "Feet")){
+                        InputMetres();
+                        ConvertMetres();
                         OutputMetresToFeet();
                     }
                     else{
@@ -57,12 +61,14 @@ namespace ConsoleAppProject.App01
 
                 else if (string.Equals(convertFrom, "Feet")){
                     ConvertTo();
-                    InputFeet();
-                    ConvertFeet();
                     if (string.Equals(convertTo, "Miles")){
+                        InputFeet();
+                        ConvertFeet();
                         OutputFeetToMiles();
                     }
                     else if (string.Equals(convertTo, "Metres")){
+                        InputFeet();
+                        ConvertFeet();
                         OutputFeetToMetres();
                     }
                     else{
