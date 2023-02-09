@@ -18,11 +18,17 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             Menu();
+            
             if (choice == 1){
-                MilesToFeet();
+                InputMiles();
+                ConvertMilesToFeet();
+                OutputFeet();
             }
+            
             else if (choice == 2){
-                FeetToMiles();
+                InputFeet();
+                ConvertFeetToMiles();
+                OutputMiles();
             }
         }
 
@@ -31,19 +37,37 @@ namespace ConsoleAppProject.App01
             Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles: ");
             choice = Convert.ToInt32(Console.ReadLine());
         }
-        public void MilesToFeet()
+        
+        public void InputMiles()
         {
             Console.Write("Please enter the number of miles: ");
             miles = Convert.ToDouble(Console.ReadLine());
-            feet = miles * mTOf;
-            Console.WriteLine("There are " + feet + " feet in " + miles + " miles.");
         }
-        public void FeetToMiles()
+        
+        public void InputFeet()
         {
             Console.Write("Please enter the number of feet: ");
             feet = Convert.ToDouble(Console.ReadLine());
+        }
+        
+        public void ConvertMilesToFeet()
+        {
+            feet = miles * mTOf;
+        }
+
+        public void ConvertFeetToMiles()
+        {
             miles = feet / mTOf;
+        }
+        
+        public void OutputMiles()
+        {
             Console.WriteLine("There are " + miles + " miles in " + feet + " feet.");
+        }
+        
+        public void OutputFeet()
+        {
+            Console.WriteLine("There are " + feet + " feet in " + miles + " miles.");
         }
     }
 }
