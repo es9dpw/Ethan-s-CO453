@@ -43,7 +43,7 @@ namespace ConsoleAppProject.App01
             Console.Write("Please enter the number of feet: ");
             feet = Convert.ToDouble(Console.ReadLine());
             miles = feet / mTOf;
-            Console.WriteLine("There are " + miles + " feet in " + miles + " feet.");
+            Console.WriteLine("There are " + miles + " miles in " + feet + " feet.");
         }
     }
 }
