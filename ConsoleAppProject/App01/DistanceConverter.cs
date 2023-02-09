@@ -11,10 +11,10 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         const int mTOf = 5280;
+        bool exit = false;
         int choice;
         double miles;
         double feet;
-        bool exit = false;
 
         public void Run()
         {
