@@ -14,8 +14,9 @@ namespace ConsoleAppProject.App01
         {
             Console.Write("Please enter the number of miles: ");
             double miles = Convert.ToDouble(Console.ReadLine());
-            double feet = miles * 5280;
+            const int mTOf = 5280;
+            double feet = miles * mTOf;
             Console.WriteLine("There are " + feet + " feet in " + miles + " miles.");
-        } 
+        }
     }
 }
