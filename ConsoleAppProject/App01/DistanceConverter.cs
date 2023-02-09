@@ -25,20 +25,24 @@ namespace ConsoleAppProject.App01
                     InputMiles();
                     ConvertMilesToFeet();
                     OutputFeet();
+                    Console.WriteLine("");
                 }
             
                 else if (choice == 2){
                     InputFeet();
                     ConvertFeetToMiles();
                     OutputMiles();
+                    Console.WriteLine("");
                 }
 
                 else if (choice == 3){
                     exit = true;
                     Console.WriteLine("Exiting Converter");
+                    Console.WriteLine("");
                 }
 
                 else{
+                    Console.WriteLine("");
                     Console.Write("Invalid option. ");
                 }
             }
