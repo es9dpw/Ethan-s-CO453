@@ -31,7 +31,7 @@ namespace ConsoleAppProject.App01
 
         public void Menu()
         {
-            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles");
+            Console.Write("Enter 1 to convert miles to feet, enter 2 to convert feet to miles: ");
             choice = Convert.ToInt32(Console.ReadLine());
         }
         public void MilesToFeet()
