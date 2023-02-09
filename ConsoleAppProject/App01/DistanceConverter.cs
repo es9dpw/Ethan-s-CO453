@@ -37,13 +37,11 @@ namespace ConsoleAppProject.App01
 
                 else if (choice == 3){
                     exit = true;
-                    Console.WriteLine("Exiting Converter");
-                    Console.WriteLine("");
+                    Console.WriteLine("Exiting Converter\n");
                 }
 
                 else{
-                    Console.WriteLine("");
-                    Console.Write("Invalid option. ");
+                    Console.Write("\nInvalid option. ");
                 }
             }
         }
