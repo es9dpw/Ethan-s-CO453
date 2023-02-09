@@ -10,11 +10,14 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-        const int mTOf = 5280;
+        const double miTOf = 5280;
+        const double miTOm = 1609.34;
+        const double mTOf = (5280 / 1609.34);
         bool exit = false;
         string choice;
         double miles;
         double feet;
+        double metres;
 
         public void Run()
         {
@@ -66,12 +69,12 @@ namespace ConsoleAppProject.App01
         
         public void ConvertMilesToFeet()
         {
-            feet = miles * mTOf;
+            feet = miles * miTOf;
         }
 
         public void ConvertFeetToMiles()
         {
-            miles = feet / mTOf;
+            miles = feet / miTOf;
         }
         
         public void OutputMiles()
