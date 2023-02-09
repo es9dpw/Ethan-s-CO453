@@ -3,10 +3,10 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app converts different units of measurment
     /// </summary>
     /// <author>
-    /// Derek version 0.1
+    /// Ethan
     /// </author>
     public class DistanceConverter
     {
