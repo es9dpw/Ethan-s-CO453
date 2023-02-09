@@ -24,9 +24,6 @@ namespace ConsoleAppProject.App01
             else if (choice == 2){
                 FeetToMiles();
             }
-            else{
-                Menu();
-            }
         }
 
         public void Menu()
