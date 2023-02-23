@@ -1,4 +1,6 @@
-﻿namespace ConsoleAppProject.App02
+﻿using System;
+
+namespace ConsoleAppProject.App02
 {
     /// <summary>
     /// Please describe the main features of this App
@@ -13,7 +15,13 @@
         double bmi;
         public void Run()
         {
-
+            Console.WriteLine("\n =================================================");
+            Console.WriteLine("               App02: BMI Calculator              ");
+            Console.WriteLine("                  by Ethan Smith                  ");
+            Console.WriteLine(" =================================================");
+            Console.WriteLine("     This is an app to calcualte someones BMI     ");
+            Console.WriteLine("           using their height and weight          ");
+            Console.WriteLine(" =================================================\n");
         }
     }
 }
