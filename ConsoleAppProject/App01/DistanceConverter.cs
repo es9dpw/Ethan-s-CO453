@@ -136,7 +136,7 @@ namespace ConsoleAppProject.App01
         
         public void Output()
         {
-            Console.WriteLine("There are " + outputValue + " " + convertFrom + " in " + inputValue + " " + convertTo + "\n");
+            Console.WriteLine("There are " + outputValue + " " + convertTo + " in " + inputValue + " " + convertFrom + "\n");
         }
     }
 }
