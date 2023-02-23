@@ -21,6 +21,14 @@ namespace ConsoleAppProject.App01
 
         public void Run()
         {
+            Console.WriteLine("\n =================================================");
+            Console.WriteLine("             App01: Distance Converter            ");
+            Console.WriteLine("                  by Ethan Smith                  ");
+            Console.WriteLine(" =================================================");
+            Console.WriteLine("            This is an app to convert             ");
+            Console.WriteLine("           distances to different units           ");
+            Console.WriteLine(" =================================================\n");
+            
             while(exit == false){
                 ConvertFrom();
             
