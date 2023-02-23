@@ -19,12 +19,10 @@ namespace ConsoleAppProject
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            Console.WriteLine();
-            Console.WriteLine(" =================================================");
+            Console.WriteLine("\n =================================================");
             Console.WriteLine("   BNU CO453 Applications Programming 2022-2023!  ");
             Console.WriteLine("                  by Ethan Smith                  ");
-            Console.WriteLine(" =================================================");
-            Console.WriteLine();
+            Console.WriteLine(" =================================================\n");
 
             DistanceConverter converter = new DistanceConverter();
             converter.Run();

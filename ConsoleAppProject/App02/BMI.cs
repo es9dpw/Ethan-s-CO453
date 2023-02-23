@@ -8,5 +8,12 @@
     /// </author>
     public class BMI
     {
+        double weightInput;
+        double heightInput;
+        double bmi;
+        public void Run()
+        {
+
+        }
     }
 }
