@@ -15,6 +15,11 @@ namespace ConsoleAppProject.App02
         double weightInput;
         double heightInput;
         double bmi;
+        string impHeight;
+        double feet;
+        double inches;
+        string impWeight;
+
         public void Run()
         {
             Console.WriteLine("\n =================================================");
@@ -56,11 +61,19 @@ namespace ConsoleAppProject.App02
         {
             if (string.Equals(units, "metric")){
                 Console.Write("Please enter your height in metres: ");
+                heightInput = Convert.ToDouble(Console.ReadLine());
             }
             else if (string.Equals(units, "imperial")){
-                Console.Write("Please enter your height in inches: ");
+                Console.Write("Please enter your height in the following format, '(feet)ft (inches)in'. For example, 6ft 2in: ");
+                impHeight = Console.ReadLine();
+                
+                String[] spearator = { " ", " " };
+                Int32 count = 2;
+                String[] heightlist = impHeight.Split(spearator, count, StringSplitOptions.RemoveEmptyEntries);
+                
+                inches=((Convert.ToDouble(heightlist[0])) * 12) + Convert.ToDouble(heightlist[1]);
+                Console.WriteLine(inches);
             }
-            heightInput = Convert.ToDouble(Console.ReadLine());
         }
 
         public void InputWeight()
