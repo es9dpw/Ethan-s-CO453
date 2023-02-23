@@ -24,12 +24,12 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("           using their height and weight          ");
             Console.WriteLine(" =================================================\n");
 
-
+            
         }
 
         public void UnitType()
         {
-            Console.Write("Enter which unit type you would like to use, metric or imperial. Or enter nothing to exit the converter: ");
+            Console.Write("Enter which unit type you would like to use, 'metric' or 'imperial'. Or enter nothing to exit the converter: ");
             units = Console.ReadLine();
         }
     }
