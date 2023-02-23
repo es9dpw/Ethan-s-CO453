@@ -36,7 +36,7 @@ namespace ConsoleAppProject.App02
                 
                 else if (string.Equals(units, "")){
                     exit = true;
-                    Console.WriteLine("Exiting Converter...\n");
+                    Console.WriteLine("Exiting Calculator...\n");
                 }
                 
                 else{
