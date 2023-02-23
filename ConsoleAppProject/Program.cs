@@ -29,7 +29,7 @@ namespace ConsoleAppProject
             Console.WriteLine(" =================================================\n");
 
             while(exit == false){
-                Console.Write("Enter the number of the app would you like to run: 1. Distance Converter, 2. BMI Calculator. Or enter nothing to exit the converter: ");
+                Console.Write("Enter the number of the app would you like to run: 1. Distance Converter, 2. BMI Calculator. Or enter nothing to exit the program: ");
                 appChoice = Console.ReadLine();
                 
                 if (string.Equals(appChoice, "1")){
