@@ -16,8 +16,6 @@ namespace ConsoleAppProject.App02
         double heightInput;
         double bmi;
         string impHeight;
-        double feet;
-        double inches;
         string impWeight;
 
         public void Run()
@@ -71,8 +69,8 @@ namespace ConsoleAppProject.App02
                 Int32 count = 2;
                 String[] heightlist = impHeight.Split(spearator, count, StringSplitOptions.RemoveEmptyEntries);
                 
-                inches=((Convert.ToDouble(heightlist[0])) * 12) + Convert.ToDouble(heightlist[1]);
-                Console.WriteLine(inches);
+                heightInput=((Convert.ToDouble(heightlist[0])) * 12) + Convert.ToDouble(heightlist[1]);
+                Console.WriteLine(heightInput);
             }
         }
 
