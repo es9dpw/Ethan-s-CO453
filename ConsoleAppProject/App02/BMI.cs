@@ -13,6 +13,7 @@ namespace ConsoleAppProject.App02
         double weightInput;
         double heightInput;
         double bmi;
+        string units;
         public void Run()
         {
             Console.WriteLine("\n =================================================");
@@ -22,6 +23,14 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("     This is an app to calcualte someones BMI     ");
             Console.WriteLine("           using their height and weight          ");
             Console.WriteLine(" =================================================\n");
+
+
+        }
+
+        public void UnitType()
+        {
+            Console.Write("Enter which unit type you would like to use, metric or imperial. Or enter nothing to exit the converter: ");
+            units = Console.ReadLine();
         }
     }
 }
