@@ -47,25 +47,63 @@ namespace ConsoleAppProject.App02
 
         public void UnitType()
         {
-            Console.Write("Enter which unit type you would like to use, 'metric' or 'imperial'. Or enter nothing to exit the converter: ");
+            Console.Write("Enter which unit type you would like to use, 'metric' or 'imperial'. Or enter nothing to exit the calculator: ");
             units = Console.ReadLine();
         }
 
         public void InputHeight()
         {
-            Console.Write("Please enter your height: ");
+            if (string.Equals(units, "metric")){
+                Console.Write("Please enter your height in metres: ");
+            }
+            else if (string.Equals(units, "imperial")){
+                Console.Write("Please enter your height in inches: ");
+            }
             heightInput = Convert.ToDouble(Console.ReadLine());
         }
 
         public void InputWeight()
         {
-            Console.Write("Please enter your weight: ");
+            if (string.Equals(units, "metric")){
+                Console.Write("Please enter your weight in kilograms: ");
+            }
+            else if (string.Equals(units, "imperial")){
+                Console.Write("Please enter your weight in pounds: ");
+            }
             weightInput = Convert.ToDouble(Console.ReadLine());
         }
 
         public void CalculateBMI()
         {
-            
+            if (string.Equals(units, "metric")){
+                bmi = weightInput / Math.Pow(heightInput, 2);
+            }
+            else if (string.Equals(units, "imperial")){
+                bmi = (weightInput * 703) / Math.Pow(heightInput, 2);
+            }
+        }
+
+        public void OutputBMI()
+        {
+            Console.Write("Your BMI is " + bmi +". This means you are ");
+            if (bmi<18.5){
+                Console.WriteLine("underwieght, as your BMI is less than 18.5.\n");
+            }
+            else if ((bmi >= 18.5) && (bmi < 25)){
+                Console.WriteLine("normal, as your BMI is between than 18.5 and 24.9.\n");
+            }
+            else if ((bmi >= 25) && (bmi < 30)){
+                Console.WriteLine("overweight, as your BMI is between than 25.0 and 29.9.\n");
+            }
+            else if ((bmi >= 30) && (bmi < 35)){
+                Console.WriteLine("in obese class I, as your BMI is between than 30.0 and 34.9.\n");
+            }
+            else if ((bmi >= 35) && (bmi < 40)){
+                Console.WriteLine("in obese class II, as your BMI is between than 35.0 and 39.9.\n");
+            }
+            else if (bmi >= 40){
+                Console.WriteLine("in obese class III, as your BMI is above 40.0.\n");
+            }
         }
     }
 }
