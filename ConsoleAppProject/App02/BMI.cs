@@ -62,7 +62,7 @@ namespace ConsoleAppProject.App02
                 heightInput = Convert.ToDouble(Console.ReadLine());
             }
             else if (string.Equals(units, "imperial")){
-                Console.Write("Please enter your height in the following format, '(feet)ft (inches)in'. For example, 6ft 2in: ");
+                Console.Write("Please enter your height in the following format: '(feet)ft (inches)in'. For example, '6ft 2in': ");
                 impHeight = Console.ReadLine();
                 
                 String[] spearator = { " ", " " };
