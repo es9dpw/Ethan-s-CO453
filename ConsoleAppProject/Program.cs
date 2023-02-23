@@ -14,12 +14,13 @@ namespace ConsoleAppProject
     /// This Project has been modified by:
     /// Derek Peacock 05/02/2022
     /// </summary>
-    public class Program
+    public static class Program
     {
-        bool exit = false;
-        string appChoice;
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
+            bool exit = false;
+            string appChoice;
+
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine("\n =================================================");
