@@ -69,7 +69,7 @@ namespace ConsoleAppProject.App02
                 Int32 count = 2;
                 String[] heightlist = impHeight.Split(spearator, count, StringSplitOptions.RemoveEmptyEntries);
                 
-                heightInput=((Convert.ToDouble(heightlist[0])) * 12) + Convert.ToDouble(heightlist[1]);
+                heightInput=((double.Parse(heightlist[0])) * 12) + (double.Parse(heightlist[1]));
                 Console.WriteLine(heightInput);
             }
         }
