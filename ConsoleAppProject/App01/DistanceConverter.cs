@@ -16,60 +16,59 @@ namespace ConsoleAppProject.App01
         bool exit = false;
         string convertFrom;
         string convertTo;
-        double miles;
-        double feet;
-        double metres;
+        double inputValue;
+        double outputValue;
 
         public void Run()
         {
             while(exit == false){
                 ConvertFrom();
             
-                if (string.Equals(convertFrom, "Miles")){
+                if (string.Equals(convertFrom, "miles")){
                     ConvertTo();
-                    if (string.Equals(convertTo, "Metres")){
-                        InputMiles();
-                        ConvertMiles();
-                        OutputMilesToMetres();
+                    if (string.Equals(convertTo, "metres")){
+                        Input();
+                        ConvertMilesToMetres();
+                        Output();
                     }
-                    else if (string.Equals(convertTo, "Feet")){
-                        InputMiles();
-                        ConvertMiles();
-                        OutputMilesToFeet();
+                    else if (string.Equals(convertTo, "feet")){
+                        Input();
+                        ConvertMilesToFeet();
+                        Output();
                     }
                     else{
                         Console.WriteLine("Invalid option.\n");
                     }
                 }
             
-                else if (string.Equals(convertFrom, "Metres")){
+                else if (string.Equals(convertFrom, "metres")){
                     ConvertTo();
-                    if (string.Equals(convertTo, "Miles")){
-                        InputMetres();
-                        ConvertMetres();
-                        OutputMetresToMiles();
+                    if (string.Equals(convertTo, "miles")){
+                        Input();
+                        ConvertMetresToMiles();
+                        Output();
                     }
-                    else if (string.Equals(convertTo, "Feet")){
-                        InputMetres();
-                        ConvertMetres();
-                        OutputMetresToFeet();
+                    else if (string.Equals(convertTo, "feet")){
+                        Input();
+                        ConvertMetresToFeet();
+                        Output();
                     }
                     else{
                         Console.WriteLine("Invalid option.\n");
                     }
                 }
 
-                else if (string.Equals(convertFrom, "Feet")){
+                else if (string.Equals(convertFrom, "feet")){
                     ConvertTo();
-                    if (string.Equals(convertTo, "Miles")){
-                        InputFeet();
-                        ConvertFeet();
-                        OutputFeetToMiles();
+                    if (string.Equals(convertTo, "miles")){
+                        Input();
+                        ConvertFeetToMiles();
+                        Output();
                     }
-                    else if (string.Equals(convertTo, "Metres")){
-                        InputFeet();
-                        ConvertFeet();
-                        OutputFeetToMetres();
+                    else if (string.Equals(convertTo, "metres")){
+                        Input();
+                        ConvertFeetToMetres();
+                        Output();
                     }
                     else{
                         Console.WriteLine("Invalid option.\n");
@@ -89,7 +88,7 @@ namespace ConsoleAppProject.App01
 
         public void ConvertFrom()
         {
-            Console.Write("Enter which unit you would like to convert from: Miles, Metres or Feet. Or enter nothing to exit the converter: ");
+            Console.Write("Enter which unit you would like to convert from: miles, metres or feet. Or enter nothing to exit the converter: ");
             convertFrom = Console.ReadLine();
         }
 
@@ -99,70 +98,45 @@ namespace ConsoleAppProject.App01
             convertTo = Console.ReadLine();
         }
         
-        public void InputMiles()
+        public void Input()
         {
-            Console.Write("Please enter the number of miles: ");
-            miles = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Please enter the number of " + convertFrom + ": ");
+            inputValue = Convert.ToDouble(Console.ReadLine());
         }
         
-        public void InputMetres()
+        public void ConvertMilesToMetres()
         {
-            Console.Write("Please enter the number of metres: ");
-            metres = Convert.ToDouble(Console.ReadLine());
+            outputValue = inputValue * miTOm;
         }
 
-        public void InputFeet()
+        public void ConvertMilesToFeet()
         {
-            Console.Write("Please enter the number of feet: ");
-            feet = Convert.ToDouble(Console.ReadLine());
+            outputValue = inputValue * miTOf;
+        }
+
+        public void ConvertMetresToMiles()
+        {
+            outputValue = inputValue / miTOm;
+        }
+
+        public void ConvertMetresToFeet()
+        {
+            outputValue = inputValue * mTOf;
+        }
+
+        public void ConvertFeetToMiles()
+        {
+            outputValue = inputValue / miTOf;
+        }
+
+        public void ConvertFeetToMetres()
+        {
+            outputValue = inputValue / mTOf;
         }
         
-        public void ConvertMiles()
+        public void Output()
         {
-            metres = miles * miTOm;
-            feet = miles * miTOf;
-        }
-
-        public void ConvertMetres()
-        {
-            miles = metres / miTOm;
-            feet = metres * mTOf;
-        }
-
-        public void ConvertFeet()
-        {
-            miles = feet / miTOf;
-            metres = feet / mTOf;
-        }
-        
-        public void OutputMilesToMetres()
-        {
-            Console.WriteLine("There are " + metres + " metres in " + miles + " miles.\n");
-        }
-        
-        public void OutputMilesToFeet()
-        {
-            Console.WriteLine("There are " + feet + " feet in " + miles + " miles.\n");
-        }
-
-        public void OutputMetresToMiles()
-        {
-            Console.WriteLine("There are " + miles + " miles in " + metres + " metres.\n");
-        }
-        
-        public void OutputMetresToFeet()
-        {
-            Console.WriteLine("There are " + feet + " feet in " + metres + " metres.\n");
-        }
-
-        public void OutputFeetToMiles()
-        {
-            Console.WriteLine("There are " + miles + " miles in " + feet + " feet.\n");
-        }
-
-        public void OutputFeetToMetres()
-        {
-            Console.WriteLine("There are " + metres + " metres in " + feet + " feet.\n");
+            Console.WriteLine("There are " + outputValue + " " + convertFrom + " in " + inputValue + " " + convertFrom + "\n");
         }
     }
 }
