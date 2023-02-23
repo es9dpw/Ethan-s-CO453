@@ -32,6 +32,7 @@ namespace ConsoleAppProject.App02
                     InputHeight();
                     InputWeight();
                     CalculateBMI();
+                    OutputBMI()
                 }
                 
                 else if (string.Equals(units, "")){
