@@ -94,7 +94,7 @@ namespace ConsoleAppProject.App01
 
         public void ConvertTo()
         {
-            Console.Write("Enter which unit you would like to convert to: Miles, Metres or Feet: ");
+            Console.Write("Enter which unit you would like to convert to: miles, metres or feet: ");
             convertTo = Console.ReadLine();
         }
         
@@ -136,7 +136,7 @@ namespace ConsoleAppProject.App01
         
         public void Output()
         {
-            Console.WriteLine("There are " + outputValue + " " + convertFrom + " in " + inputValue + " " + convertFrom + "\n");
+            Console.WriteLine("There are " + outputValue + " " + convertFrom + " in " + inputValue + " " + convertTo + "\n");
         }
     }
 }
