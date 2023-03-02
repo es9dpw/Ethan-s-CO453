@@ -139,7 +139,7 @@ namespace ConsoleAppProject.App01
         {
             outputValue = inputValue * miTOm;
         }
-        //converts the distance entred to the correct value in another unit depending on what the user entered
+        //converts the distance entered to the correct value in another unit depending on what the user entered
 
         public void ConvertMilesToFeet()
         {
