@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App01
     /// This app converts different units of measurment
     /// </summary>
     /// <author>
-    /// Ethan
+    /// Ethan Smith
     /// </author>
     public class DistanceConverter
     {

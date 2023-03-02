@@ -3,10 +3,10 @@
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app takes the users height and weight inputs, calculates and then outputs their BMI
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Ethan Smith
     /// </author>
     public class BMI
     {
