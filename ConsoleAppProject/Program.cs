@@ -31,7 +31,7 @@ namespace ConsoleAppProject
             //creates the main heading shown to the user
 
             while(exit == false){
-            //creates a loop to keep the program running until the user maunally exits it
+            //creates a loop to keep the program running until the user manually exits it
                 Console.Write("Enter the number of the app would you like to run: 1. Distance Converter, 2. BMI Calculator. Or enter nothing to exit the program: ");
                 appChoice = Console.ReadLine();
                 //asks the user to enter the app they want to use, or exit the program
@@ -52,7 +52,7 @@ namespace ConsoleAppProject
                     exit = true;
                     Console.WriteLine("Exiting Program...\n");
                 }
-                //checks if the user wants to exit program, and then exits it if they did
+                //checks if the user wants to exit program, and then exits it if they did by breaking the loop
                 
                 else{
                     Console.WriteLine("Invalid option.\n");
