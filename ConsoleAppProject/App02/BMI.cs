@@ -17,6 +17,7 @@ namespace ConsoleAppProject.App02
         double bmi;
         string impHeight;
         string impWeight;
+        Int32 count;
 
         public void Run()
         {
@@ -65,12 +66,15 @@ namespace ConsoleAppProject.App02
                 Console.Write("Please enter your height in the following format: '(feet)ft (inches)in'. For example, '6ft 2in': ");
                 impHeight = Console.ReadLine();
                 
-                String[] spearator = { " ", " " };
-                Int32 count = 2;
-                String[] heightlist = impHeight.Split(spearator, count, StringSplitOptions.RemoveEmptyEntries);
+                String[] spearator1 = { "ft ", "ft " };
+                count = 2;
+                String[] feet = impHeight.Split(spearator1, count, StringSplitOptions.RemoveEmptyEntries);
+
+                String[] spearator2 = { "in", "in" };
+                count = 2;
+                String[] inches = feet[1].Split(spearator2, count, StringSplitOptions.RemoveEmptyEntries);
                 
-                heightInput=((double.Parse(heightlist[0])) * 12) + (double.Parse(heightlist[1]));
-                Console.WriteLine(heightInput);
+                heightInput=((Convert.ToDouble(feet[0])) * 12) + (Convert.ToDouble(inches[0]));
             }
         }
 
@@ -78,11 +82,22 @@ namespace ConsoleAppProject.App02
         {
             if (string.Equals(units, "metric")){
                 Console.Write("Please enter your weight in kilograms: ");
+                weightInput = Convert.ToDouble(Console.ReadLine());
             }
             else if (string.Equals(units, "imperial")){
-                Console.Write("Please enter your weight in pounds: ");
+                Console.Write("Please enter your weight in the following format: '(stone)st (pounds)lb'. For example, '12st 8lb': ");
+                impWeight = Console.ReadLine();
+                
+                String[] spearator1 = { "st ", "st " };
+                count = 2;
+                String[] stone = impWeight.Split(spearator1, count, StringSplitOptions.RemoveEmptyEntries);
+
+                String[] spearator2 = { "lb", "lb" };
+                count = 2;
+                String[] pounds = stone[1].Split(spearator2, count, StringSplitOptions.RemoveEmptyEntries);
+                
+                weightInput=((Convert.ToDouble(stone[0])) * 14) + (Convert.ToDouble(pounds[0]));
             }
-            weightInput = Convert.ToDouble(Console.ReadLine());
         }
 
         public void CalculateBMI()
