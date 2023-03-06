@@ -123,7 +123,15 @@ namespace ConsoleAppProject.App01
 
         public void ConvertTo()
         {
-            Console.Write("Enter which unit you would like to convert to: 'miles', 'metres' or 'feet': ");
+            if (string.Equals(convertFrom, "miles")){
+                Console.Write("Enter which unit you would like to convert to: 'metres' or 'feet': ");
+            }
+            else if (string.Equals(convertFrom, "metres")){
+                Console.Write("Enter which unit you would like to convert to: 'miles' or 'feet': ");
+            }
+            else if (string.Equals(convertFrom, "feet")){
+                Console.Write("Enter which unit you would like to convert to: 'miles' or 'metres': ");
+            }
             convertTo = Console.ReadLine();
         }
         //takes the users input on what distance unit they want to convert to
