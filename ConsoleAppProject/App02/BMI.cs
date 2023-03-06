@@ -133,24 +133,25 @@ namespace ConsoleAppProject.App02
         {
             Console.Write("Your BMI is " + bmi +". This means you are ");
             if (bmi<18.5){
-                Console.WriteLine("underwieght, as your BMI is less than 18.5.\n");
+                Console.WriteLine("underwieght, as your BMI is less than 18.5.");
             }
             else if ((bmi >= 18.5) && (bmi < 25)){
-                Console.WriteLine("normal, as your BMI is between than 18.5 and 24.9.\n");
+                Console.WriteLine("normal, as your BMI is between than 18.5 and 24.9.");
             }
             else if ((bmi >= 25) && (bmi < 30)){
-                Console.WriteLine("overweight, as your BMI is between than 25.0 and 29.9.\n");
+                Console.WriteLine("overweight, as your BMI is between than 25.0 and 29.9.");
             }
             else if ((bmi >= 30) && (bmi < 35)){
-                Console.WriteLine("in obese class I, as your BMI is between than 30.0 and 34.9.\n");
+                Console.WriteLine("in obese class I, as your BMI is between than 30.0 and 34.9.");
             }
             else if ((bmi >= 35) && (bmi < 40)){
-                Console.WriteLine("in obese class II, as your BMI is between than 35.0 and 39.9.\n");
+                Console.WriteLine("in obese class II, as your BMI is between than 35.0 and 39.9.");
             }
             else if (bmi >= 40){
-                Console.WriteLine("in obese class III, as your BMI is above 40.0.\n");
+                Console.WriteLine("in obese class III, as your BMI is above 40.0.");
             }
+            Console.WriteLine("If you are black, asian or other minority ethnic groups, you have a higher risk. Adults 23.0 or more are at increased risk and adults 27.5 or more are at high risk.\n");
         }
-        //outputs the users BMI and then checks which BMI class they fall into and displays it to them
+        //outputs the users BMI and then checks which BMI class they fall into, displays it to them and displays a warning to BAME groups
     }
 }
