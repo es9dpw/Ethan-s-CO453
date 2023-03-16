@@ -11,6 +11,9 @@ namespace ConsoleAppProject.App03
     /// </summary>
     public class StudentGrades
     {
-
+        public void Run()
+        {
+            
+        }
     }
 }
