@@ -18,6 +18,10 @@ namespace ConsoleAppProject.App03
         string markHolder;
         int studentCount = -1;
         int listCount;
+        double totalMarks;
+        double meanMark;
+        double minMark;
+        double maxMark;
         ArrayList students = new ArrayList();
         ArrayList marks = new ArrayList();
         ArrayList grades = new ArrayList();
@@ -55,7 +59,7 @@ namespace ConsoleAppProject.App03
         }
 
         public void Menu(){
-            Console.Write("MAIN MENU\n\n1. Add Student and Mark\n2. Display student, mark and grade list\n3. Display average, minimum and maximum mark\n4. Display Grade Profile\n5. Exit App\n\nPlease enter your choice: ");
+            Console.Write("MAIN MENU\n1. Add Student and Mark\n2. Display student, mark and grade list\n3. Display average, minimum and maximum mark\n4. Display Grade Profile\n5. Exit App\n\nPlease enter your choice: ");
             menuChoice = Console.ReadLine();
         }
         //takes the users input on which menu option they want
@@ -108,7 +112,38 @@ namespace ConsoleAppProject.App03
                 listCount++;
                 Console.WriteLine("Student: " + students[listCount] + ", Mark: " + marks[listCount] + ", Grade: " + grades[listCount]);
             }
+            Console.WriteLine("");
         }
         //Displays each element in the lists to display a list of students with their mark and grades to the user
+
+        public void MeanMark(){
+            listCount = -1;
+            totalMarks = 0;
+            while(listCount < studentCount){
+                listCount++;
+                totalMarks = totalMarks + Convert.ToDouble(marks[listCount]);
+            }
+            meanMark = totalMarks / (studentCount + 1);
+            Console.WriteLine("The average mark is " + meanMark + ".");
+        }
+        //Calculates the total marks of every student and then divides by the number of students to find the average mark
+
+        public void MinMaxMark(){
+            listCount = -1;
+            minMark = Convert.ToDouble(marks[(listCount + 1)]);
+            maxMark = Convert.ToDouble(marks[(listCount + 1)]);
+            while(listCount < (studentCount - 1)){
+                listCount++;
+                if (Convert.ToDouble(marks[(listCount + 1)]) < Convert.ToDouble(marks[listCount])){
+                    minMark = Convert.ToDouble(marks[(listCount + 1)]);
+                }
+                else if (Convert.ToDouble(marks[(listCount + 1)]) > Convert.ToDouble(marks[listCount])){
+                    maxMark = Convert.ToDouble(marks[(listCount + 1)]);
+                }
+            }
+            Console.WriteLine("The minimum mark is " + minMark + ".");
+            Console.WriteLine("The maximum mark is " + maxMark + ".\n");
+        }
+        //Checks through each mark to see which mark is the lowest and highest and displays them back to the user
     }
 }
