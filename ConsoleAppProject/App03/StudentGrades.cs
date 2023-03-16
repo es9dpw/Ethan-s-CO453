@@ -18,6 +18,11 @@ namespace ConsoleAppProject.App03
         string markHolder;
         int studentCount = -1;
         int listCount;
+        int aNumber;
+        int bNumber;
+        int cNumber;
+        int dNumber;
+        int fNumber;
         double totalMarks;
         double meanMark;
         double minMark;
@@ -62,6 +67,25 @@ namespace ConsoleAppProject.App03
                     MinMaxMark();
                     //calls the methods for calculating the mean, minimum and maximum marks
                 }
+                
+                else if (string.Equals(menuChoice, "4")){
+                //checks if the entred the fourth menu option
+                    MeanMark();
+                    MinMaxMark();
+                    //calls the methods for calculating the mean, minimum and maximum marks
+                }
+                
+                else if (string.Equals(menuChoice, "5")){
+                //checks if the entred the fifth menu option
+                    exit = true;
+                    Console.WriteLine("Exiting App...\n");
+                    //breaks the apps loop to exit the app
+                }
+
+                else{
+                    Console.WriteLine("Invalid option.\n");
+                }
+                //if none of the unit type options are entered then an error is diplayed
             }
         }
 
@@ -152,5 +176,34 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("The maximum mark is " + maxMark + ".\n");
         }
         //Checks through each mark to see which mark is the lowest and highest and displays them back to the user
+
+        public void GradeProfile(){
+            listCount = -1;
+            aNumber = 0;
+            bNumber = 0;
+            cNumber = 0;
+            dNumber = 0;
+            fNumber = 0;
+            while(listCount < studentCount){
+                listCount++;
+                if(string.Equals(grades[listCount], "A")){
+                    aNumber++;
+                }
+                else if(string.Equals(grades[listCount], "B")){
+                    bNumber++;
+                }
+                else if(string.Equals(grades[listCount], "C")){
+                    cNumber++;
+                }
+                else if(string.Equals(grades[listCount], "D")){
+                    dNumber++;
+                }
+                else if(string.Equals(grades[listCount], "F")){
+                    fNumber++;
+                }
+            }
+            Console.WriteLine((aNumber / (studentCount + 1)) + "% of students got an A grade, " + (bNumber / (studentCount + 1)) + "% of students got a B grade, " + (cNumber / (studentCount + 1)) + "% of students got a C grade, " + (dNumber / (studentCount + 1)) + "% of students got a D grade, and " + (fNumber / (studentCount + 1)) + "% of students got an F grade.");
+        }
+        //Calculates the percentage of students who got each grade and sipalys it to the user
     }
 }
