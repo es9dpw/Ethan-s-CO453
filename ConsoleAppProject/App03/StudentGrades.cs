@@ -17,6 +17,7 @@ namespace ConsoleAppProject.App03
         string menuChoice;
         string markHolder;
         int studentCount = -1;
+        int listCount;
         ArrayList students = new ArrayList();
         ArrayList marks = new ArrayList();
         ArrayList grades = new ArrayList();
@@ -39,6 +40,14 @@ namespace ConsoleAppProject.App03
                 if (string.Equals(menuChoice, "1")){
                 //checks if the entred the first menu option
                     studentCount++;
+                    AddStudent();
+                    AddMark();
+                    AddGrade();
+                    //adds 1 to the student count and calls the method for adding a students name, mark and grade
+                }
+
+                if (string.Equals(menuChoice, "2")){
+                //checks if the entred the second menu option
                     AddStudent();
                     AddMark();
                     AddGrade();
@@ -93,5 +102,14 @@ namespace ConsoleAppProject.App03
             Console.WriteLine(students[studentCount] + "got a grade " + grades[studentCount] + ".");
         }
         //calculates a students grade based on their mark, adds it to an array, then displays it back to the user
+
+        public void ListDisplay(){
+            listCount = -1;
+            while(listCount < studentCount){
+                listCount++;
+                Console.WriteLine("Student: " + students[listCount] + ", Mark: " + marks[listCount] + ", Grade: " + grades[listCount]);
+            }
+        }
+        //Displays each element in the lists to display a list of students with their mark and grades to the user
     }
 }
