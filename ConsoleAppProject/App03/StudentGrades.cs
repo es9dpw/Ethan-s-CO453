@@ -48,10 +48,8 @@ namespace ConsoleAppProject.App03
 
                 else if (string.Equals(menuChoice, "2")){
                 //checks if the entred the second menu option
-                    AddStudent();
-                    AddMark();
-                    AddGrade();
-                    //adds 1 to the student count and calls the method for adding a students name, mark and grade
+                    ListDisplay();
+                    //calls the ListDisplay method
                 }
             }
         }
