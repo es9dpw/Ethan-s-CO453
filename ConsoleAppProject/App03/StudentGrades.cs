@@ -7,9 +7,12 @@ using System.Collections;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// At the moment this class just tests the
-    /// Grades enumeration names and descriptions
+    /// This app allows the user to enter students and their marks to calculate their grades.
+    /// they can then also display all the students with their marks and their grades, display the average, minimum and maximum marks, and display a grade profile.
     /// </summary>
+    /// <author>
+    /// Ethan Smith
+    /// </author>
     public class StudentGrades
     {
         bool exit = false;
@@ -30,6 +33,7 @@ namespace ConsoleAppProject.App03
         ArrayList students = new ArrayList();
         ArrayList marks = new ArrayList();
         ArrayList grades = new ArrayList();
+        //defines the variable types
 
         public void Run()
         {
@@ -52,7 +56,7 @@ namespace ConsoleAppProject.App03
                     AddStudent();
                     AddMark();
                     AddGrade();
-                    //adds 1 to the student count and calls the method for adding a students name, mark and grade
+                    //adds 1 to the student count and calls the method for adding a student's name, mark and grade
                 }
 
                 else if (string.Equals(menuChoice, "2")){
@@ -98,12 +102,12 @@ namespace ConsoleAppProject.App03
             Console.Write("Enter the name of the student: ");
             students.Add(Console.ReadLine());
         }
-        //takes the users input to add a students name to an array list
+        //takes the users input to add a student's name to an array list
 
         public void AddMark(){
             validMark = false;
             while (validMark == false){
-                Console.Write("Enter the students mark: ");
+                Console.Write("Enter the student's mark: ");
                 markHolder = Console.ReadLine();
                 if((Convert.ToDouble(markHolder) >= 0) && (Convert.ToDouble(markHolder) <= 100)){
                     marks.Add(markHolder);
@@ -114,7 +118,7 @@ namespace ConsoleAppProject.App03
                 }
             }
         }
-        //takes the users input to add a students mark to an array list and checks that they entered a vlid grade
+        //takes the users input to add a student's mark to an array list and checks that they entered a vlid grade
 
         public void AddGrade(){
             if(Convert.ToDouble(marks[studentCount]) >= 70){
@@ -134,7 +138,7 @@ namespace ConsoleAppProject.App03
             }
             Console.WriteLine(students[studentCount] + " got a grade " + grades[studentCount] + ".\n");
         }
-        //calculates a students grade based on their mark, adds it to an array, then displays it back to the user
+        //calculates a student's grade based on their mark, adds it to an array, then displays it back to the user
 
         public void ListDisplay(){
             listCount = -1;
@@ -203,6 +207,6 @@ namespace ConsoleAppProject.App03
             }
             Console.WriteLine((aNumber / (studentCount + 1)) + "% of students got an A grade, " + (bNumber / (studentCount + 1)) + "% of students got a B grade, " + (cNumber / (studentCount + 1)) + "% of students got a C grade, " + (dNumber / (studentCount + 1)) + "% of students got a D grade, and " + (fNumber / (studentCount + 1)) + "% of students got an F grade.");
         }
-        //Calculates the percentage of students who got each grade and sipalys it to the user
+        //Calculates the percentage of students who got each grade and displays it to the user
     }
 }
