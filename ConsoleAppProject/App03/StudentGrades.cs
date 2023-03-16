@@ -55,11 +55,18 @@ namespace ConsoleAppProject.App03
                     ListDisplay();
                     //calls the ListDisplay method
                 }
+                
+                else if (string.Equals(menuChoice, "3")){
+                //checks if the entred the third menu option
+                    MeanMark();
+                    MinMaxMark();
+                    //calls the methods for calculating the mean, minimum and maximum marks
+                }
             }
         }
 
         public void Menu(){
-            Console.Write("MAIN MENU\n1. Add Student and Mark\n2. Display student, mark and grade list\n3. Display average, minimum and maximum mark\n4. Display Grade Profile\n5. Exit App\n\nPlease enter your choice: ");
+            Console.Write("MAIN MENU\n1. Add Student and Mark\n2. Display student, mark and grade list\n3. Display average, minimum and maximum marks\n4. Display Grade Profile\n5. Exit App\n\nPlease enter your choice: ");
             menuChoice = Console.ReadLine();
         }
         //takes the users input on which menu option they want
