@@ -70,9 +70,8 @@ namespace ConsoleAppProject.App03
                 
                 else if (string.Equals(menuChoice, "4")){
                 //checks if the entred the fourth menu option
-                    MeanMark();
-                    MinMaxMark();
-                    //calls the methods for calculating the mean, minimum and maximum marks
+                    GradeProfile();
+                    //calls the GradeProfile method
                 }
                 
                 else if (string.Equals(menuChoice, "5")){
