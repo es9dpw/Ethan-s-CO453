@@ -75,6 +75,7 @@ namespace ConsoleAppProject.App03
                 markHolder = Console.ReadLine();
                 if((Convert.ToDouble(markHolder) >= 0) && (Convert.ToDouble(markHolder) <= 100)){
                     marks.Add(markHolder);
+                    validMark = true;
                 }
                 else{
                     Console.WriteLine("Invalid mark, please re-enter.");
