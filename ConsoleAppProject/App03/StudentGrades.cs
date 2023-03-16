@@ -205,7 +205,7 @@ namespace ConsoleAppProject.App03
                     fNumber++;
                 }
             }
-            Console.WriteLine((aNumber / (studentCount + 1)) + "% of students got an A grade, " + (bNumber / (studentCount + 1)) + "% of students got a B grade, " + (cNumber / (studentCount + 1)) + "% of students got a C grade, " + (dNumber / (studentCount + 1)) + "% of students got a D grade, and " + (fNumber / (studentCount + 1)) + "% of students got an F grade.");
+            Console.WriteLine(((aNumber * 100) / (studentCount + 1)) + "% of students got an A grade, " + ((bNumber * 100) / (studentCount + 1)) + "% of students got a B grade, " + ((cNumber * 100) / (studentCount + 1)) + "% of students got a C grade, " + ((dNumber * 100) / (studentCount + 1)) + "% of students got a D grade, and " + ((fNumber * 100) / (studentCount + 1)) + "% of students got an F grade.\n");
         }
         //Calculates the percentage of students who got each grade and displays it to the user
     }
