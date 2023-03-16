@@ -157,7 +157,7 @@ namespace ConsoleAppProject.App03
 
         public void MeanMark(){
             if(studentCount <= -1){
-                Console.WriteLine("No student's marks have been entered.\n");
+                Console.WriteLine("No student's marks have been entered.");
             }
             else{
                 listCount = -1;
@@ -174,7 +174,7 @@ namespace ConsoleAppProject.App03
 
         public void MinMaxMark(){
             if(studentCount <= -1){
-                Console.WriteLine("No student's marks have been entered.\n");
+                Console.WriteLine("");
             }
             else if(studentCount == 0){
                 Console.WriteLine("The minimum mark is " + Convert.ToDouble(marks[(studentCount)]) + ".");
