@@ -141,71 +141,95 @@ namespace ConsoleAppProject.App03
         //calculates a student's grade based on their mark, adds it to an array, then displays it back to the user
 
         public void ListDisplay(){
-            listCount = -1;
-            while(listCount < studentCount){
-                listCount++;
-                Console.WriteLine("Student: " + students[listCount] + ", Mark: " + marks[listCount] + ", Grade: " + grades[listCount]);
+            if(studentCount <= -1){
+                Console.WriteLine("No student's marks have been entered.\n");
             }
-            Console.WriteLine("");
+            else{
+                listCount = -1;
+                while(listCount < studentCount){
+                    listCount++;
+                    Console.WriteLine("Student: " + students[listCount] + ", Mark: " + marks[listCount] + ", Grade: " + grades[listCount]);
+                }
+                Console.WriteLine("");
+            }
         }
         //Displays each element in the lists to display a list of students with their mark and grades to the user
 
         public void MeanMark(){
-            listCount = -1;
-            totalMarks = 0;
-            while(listCount < studentCount){
-                listCount++;
-                totalMarks = totalMarks + Convert.ToDouble(marks[listCount]);
+            if(studentCount <= -1){
+                Console.WriteLine("No student's marks have been entered.\n");
             }
-            meanMark = totalMarks / (studentCount + 1);
-            Console.WriteLine("The average mark is " + meanMark + ".");
+            else{
+                listCount = -1;
+                totalMarks = 0;
+                while(listCount < studentCount){
+                    listCount++;
+                    totalMarks = totalMarks + Convert.ToDouble(marks[listCount]);
+                }
+                meanMark = totalMarks / (studentCount + 1);
+                Console.WriteLine("The average mark is " + meanMark + ".");
+            }
         }
         //Calculates the total marks of every student and then divides by the number of students to find the average mark
 
         public void MinMaxMark(){
-            listCount = -1;
-            minMark = Convert.ToDouble(marks[(listCount + 1)]);
-            maxMark = Convert.ToDouble(marks[(listCount + 1)]);
-            while(listCount < (studentCount - 1)){
-                listCount++;
-                if (Convert.ToDouble(marks[(listCount + 1)]) < Convert.ToDouble(marks[listCount])){
-                    minMark = Convert.ToDouble(marks[(listCount + 1)]);
-                }
-                else if (Convert.ToDouble(marks[(listCount + 1)]) > Convert.ToDouble(marks[listCount])){
-                    maxMark = Convert.ToDouble(marks[(listCount + 1)]);
-                }
+            if(studentCount <= -1){
+                Console.WriteLine("No student's marks have been entered.\n");
             }
-            Console.WriteLine("The minimum mark is " + minMark + ".");
-            Console.WriteLine("The maximum mark is " + maxMark + ".\n");
+            else if(studentCount == 0){
+                Console.WriteLine("The minimum mark is " + Convert.ToDouble(marks[(studentCount)]) + ".");
+                Console.WriteLine("The maximum mark is " + Convert.ToDouble(marks[(studentCount)]) + ".\n");
+            }
+            else{
+                listCount = -1;
+                minMark = Convert.ToDouble(marks[(listCount + 1)]);
+                maxMark = Convert.ToDouble(marks[(listCount + 1)]);
+                while(listCount < (studentCount - 1)){
+                    listCount++;
+                    if (Convert.ToDouble(marks[(listCount + 1)]) < Convert.ToDouble(marks[listCount])){
+                        minMark = Convert.ToDouble(marks[(listCount + 1)]);
+                    }
+                    else if (Convert.ToDouble(marks[(listCount + 1)]) > Convert.ToDouble(marks[listCount])){
+                        maxMark = Convert.ToDouble(marks[(listCount + 1)]);
+                    }
+                }
+                Console.WriteLine("The minimum mark is " + minMark + ".");
+                Console.WriteLine("The maximum mark is " + maxMark + ".\n");
+            }
         }
         //Checks through each mark to see which mark is the lowest and highest and displays them back to the user
 
         public void GradeProfile(){
-            listCount = -1;
-            aNumber = 0;
-            bNumber = 0;
-            cNumber = 0;
-            dNumber = 0;
-            fNumber = 0;
-            while(listCount < studentCount){
-                listCount++;
-                if(string.Equals(grades[listCount], "A")){
-                    aNumber++;
-                }
-                else if(string.Equals(grades[listCount], "B")){
-                    bNumber++;
-                }
-                else if(string.Equals(grades[listCount], "C")){
-                    cNumber++;
-                }
-                else if(string.Equals(grades[listCount], "D")){
-                    dNumber++;
-                }
-                else if(string.Equals(grades[listCount], "F")){
-                    fNumber++;
-                }
+            if(studentCount <= -1){
+                Console.WriteLine("No student's marks have been entered.\n");
             }
-            Console.WriteLine(((aNumber * 100) / (studentCount + 1)) + "% of students got an A grade, " + ((bNumber * 100) / (studentCount + 1)) + "% of students got a B grade, " + ((cNumber * 100) / (studentCount + 1)) + "% of students got a C grade, " + ((dNumber * 100) / (studentCount + 1)) + "% of students got a D grade, and " + ((fNumber * 100) / (studentCount + 1)) + "% of students got an F grade.\n");
+            else{
+                listCount = -1;
+                aNumber = 0;
+                bNumber = 0;
+                cNumber = 0;
+                dNumber = 0;
+                fNumber = 0;
+                while(listCount < studentCount){
+                    listCount++;
+                    if(string.Equals(grades[listCount], "A")){
+                    aNumber++;
+                    }
+                    else if(string.Equals(grades[listCount], "B")){
+                    bNumber++;
+                    }
+                    else if(string.Equals(grades[listCount], "C")){
+                    cNumber++;
+                    }
+                    else if(string.Equals(grades[listCount], "D")){
+                    dNumber++;
+                    }
+                    else if(string.Equals(grades[listCount], "F")){
+                    fNumber++;
+                    }
+                }
+                Console.WriteLine(((aNumber * 100) / (studentCount + 1)) + "% of students got an A grade, " + ((bNumber * 100) / (studentCount + 1)) + "% of students got a B grade, " + ((cNumber * 100) / (studentCount + 1)) + "% of students got a C grade, " + ((dNumber * 100) / (studentCount + 1)) + "% of students got a D grade, and " + ((fNumber * 100) / (studentCount + 1)) + "% of students got an F grade.\n");
+            }
         }
         //Calculates the percentage of students who got each grade and displays it to the user
     }
