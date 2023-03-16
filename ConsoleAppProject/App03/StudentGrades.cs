@@ -46,7 +46,7 @@ namespace ConsoleAppProject.App03
                     //adds 1 to the student count and calls the method for adding a students name, mark and grade
                 }
 
-                if (string.Equals(menuChoice, "2")){
+                else if (string.Equals(menuChoice, "2")){
                 //checks if the entred the second menu option
                     AddStudent();
                     AddMark();
@@ -100,7 +100,7 @@ namespace ConsoleAppProject.App03
             else if (Convert.ToDouble(marks[studentCount]) < 40){
                 grades.Add("F");
             }
-            Console.WriteLine(students[studentCount] + "got a grade " + grades[studentCount] + ".");
+            Console.WriteLine(students[studentCount] + " got a grade " + grades[studentCount] + ".\n");
         }
         //calculates a students grade based on their mark, adds it to an array, then displays it back to the user
 
