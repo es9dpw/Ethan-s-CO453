@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App03
 {
     /// <summary>
     /// This app allows the user to enter students and their marks to calculate their grades.
-    /// they can then also display all the students with their marks and their grades, display the average, minimum and maximum marks, and display a grade profile.
+    /// They can then also display all the students with their marks and their grades, display the average, minimum and maximum marks, and display a grade profile.
     /// </summary>
     /// <author>
     /// Ethan Smith
