@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -32,7 +33,7 @@ namespace ConsoleAppProject
 
             while(exit == false){
             //creates a loop to keep the program running until the user manually exits it
-                Console.Write("MAIN MENU\n1. Distance Converter\n2. BMI Calculator\n3. Grade Calculator\n4. Exit Program\n\nPlease enter your choice: ");
+                Console.Write("MAIN MENU\n1. Distance Converter\n2. BMI Calculator\n3. Grade Calculator\n4. Social Network\n5. Exit Program\n\nPlease enter your choice: ");
                 appChoice = Console.ReadLine();
                 //asks the user to enter the app they want to use, or exit the program
                 
@@ -55,6 +56,12 @@ namespace ConsoleAppProject
                 //checks if the user entered the third program, and then opens it if they did
 
                 else if (string.Equals(appChoice, "4")){
+                    NewsFeed feed= new NewsFeed();
+                    feed.Run();
+                }
+                //checks if the user entered the third program, and then opens it if they did
+
+                else if (string.Equals(appChoice, "5")){
                     exit = true;
                     Console.WriteLine("Exiting Program...\n");
                 }
