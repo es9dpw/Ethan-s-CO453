@@ -113,11 +113,11 @@ namespace ConsoleAppProject.App04
             }
             else{
                 listCount = -1;
-                Console.WriteLine("");
                 while(listCount < postCount){
                     listCount++;
-                    Console.WriteLine(posts[listCount] + "\n@" + author[listCount] + "\n");
+                    Console.WriteLine("\n" + posts[listCount] + "\n@" + author[listCount]);
                 }
+                Console.WriteLine("");
             }
         }
 
