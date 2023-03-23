@@ -52,17 +52,17 @@ namespace ConsoleAppProject.App04
                 }
 
                 if (string.Equals(menuChoice, "4")){
-                //checks if the entred the first menu option
+                //checks if the entred the fourth menu option
                     PostDisplay();
                 }
 
                 if (string.Equals(menuChoice, "5")){
-                //checks if the entred the first menu option
+                //checks if the entred the fifth menu option
                     AuthorPostDisplay();
                 }
                 
                 else if (string.Equals(menuChoice, "6")){
-                //checks if the entred the fifth menu option
+                //checks if the entred the sixth menu option
                     exit = true;
                     Console.WriteLine("Exiting App...\n");
                     //breaks the apps loop to exit the app
