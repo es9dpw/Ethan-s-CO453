@@ -36,8 +36,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine(" =================================================\n");
             //creates the heading for the app and displays it to the user;
 
-            while (exit == false)
-            {
+            while (exit == false){
                 Menu();
                 //calls the Menu method
 
@@ -63,12 +62,10 @@ namespace ConsoleAppProject.App04
         public void Menu()
         {
             Console.Write("MAIN MENU\n1. Log");
-            if (string.Equals(user, ""))
-            {
+            if (string.Equals(user, "")){
                 Console.Write("in");
             }
-            else
-            {
+            else{
                 Console.Write("out");
             }
             Console.Write("\n2. Add message post\n3. Add photo post\n4. Display all posts\n5. Display all posts by an author\n6. Exit App\n\nPlease enter your choice: ");
@@ -78,14 +75,17 @@ namespace ConsoleAppProject.App04
 
         public void Login()
         {
-            if (string.Equals(user, ""))
-            {
-                Console.Write("Enter your username to login: ");
-                user = Console.ReadLine();
+            if (string.Equals(user, "")){
+                while (string.Equals(user, "")){
+                    Console.Write("Enter your username to login: ");
+                    user = Console.ReadLine();
+                    if (string.Equals(user, "")){
+                        Console.WriteLine("Invalid username, try again.");
+                    }
+                }
                 Console.WriteLine(user + " logged in.\n");
             }
-            else
-            {
+            else{
                 Console.WriteLine("Logged out.\n");
                 user = "";
             }
