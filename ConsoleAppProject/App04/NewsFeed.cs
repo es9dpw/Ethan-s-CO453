@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 
 
 namespace ConsoleAppProject.App04
@@ -21,9 +22,14 @@ namespace ConsoleAppProject.App04
     public class NewsFeed
     {
         bool exit = false;
+        bool userPosts;
+        int postCount = -1;
+        int listCount;
         string menuChoice;
-        public int postCount = -1;
         string user = "";
+        string userChoice;
+        ArrayList posts = new ArrayList();
+        ArrayList author = new ArrayList();
 
         public void Run()
         {
@@ -43,6 +49,16 @@ namespace ConsoleAppProject.App04
                 if (string.Equals(menuChoice, "1")){
                 //checks if the entred the first menu option
                     Login();
+                }
+
+                if (string.Equals(menuChoice, "4")){
+                //checks if the entred the first menu option
+                    PostDisplay();
+                }
+
+                if (string.Equals(menuChoice, "5")){
+                //checks if the entred the first menu option
+                    AuthorPostDisplay();
                 }
                 
                 else if (string.Equals(menuChoice, "6")){
@@ -68,7 +84,7 @@ namespace ConsoleAppProject.App04
             else{
                 Console.Write("out");
             }
-            Console.Write("\n2. Add message post\n3. Add photo post\n4. Display all posts\n5. Display all posts by an author\n6. Exit App\n\nPlease enter your choice: ");
+            Console.Write("\n2. Add message post\n3. Add photo post\n4. Display all posts\n5. Display all posts by a user\n6. Exit App\n\nPlease enter your choice: ");
             menuChoice = Console.ReadLine();
         }
         //takes the users input on which menu option they want
@@ -88,6 +104,43 @@ namespace ConsoleAppProject.App04
             else{
                 Console.WriteLine("Logged out.\n");
                 user = "";
+            }
+        }
+
+        public void PostDisplay(){
+            if (postCount < 0){
+                Console.WriteLine("No posts have been made.\n");
+            }
+            else{
+                listCount = -1;
+                Console.WriteLine("");
+                while(listCount < postCount){
+                    listCount++;
+                    Console.WriteLine(posts[listCount] + "\n@" + author[listCount] + "\n");
+                }
+            }
+        }
+
+        public void AuthorPostDisplay(){
+            if (postCount < 0){
+                Console.WriteLine("No posts have been made.\n");
+            }
+            else{
+                listCount = -1;
+                userPosts = false;
+                Console.Write("Enter the username to see their posts: ");
+                userChoice = Console.ReadLine();
+                while(listCount < postCount){
+                    listCount++;
+                    if (string.Equals(author[listCount], "userChoice")){
+                        Console.WriteLine("\n" + posts[listCount] + "\n@" + author[listCount]);
+                        userPosts = true;
+                    }
+                }
+                if (userPosts == false){
+                        Console.WriteLine("This user hasn't made any posts.");
+                }
+                Console.WriteLine("");
             }
         }
     }
