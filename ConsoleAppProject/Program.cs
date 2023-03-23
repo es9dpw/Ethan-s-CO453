@@ -59,7 +59,7 @@ namespace ConsoleAppProject
                     NewsFeed feed= new NewsFeed();
                     feed.Run();
                 }
-                //checks if the user entered the third program, and then opens it if they did
+                //checks if the user entered the fourth program, and then opens it if they did
 
                 else if (string.Equals(appChoice, "5")){
                     exit = true;
