@@ -41,11 +41,22 @@ namespace ConsoleAppProject.App04
                 Menu();
                 //calls the Menu method
 
-                if (string.Equals(menuChoice, "1"))
-                {
-                    //checks if the entred the first menu option
+                if (string.Equals(menuChoice, "1")){
+                //checks if the entred the first menu option
                     Login();
                 }
+                
+                else if (string.Equals(menuChoice, "6")){
+                //checks if the entred the fifth menu option
+                    exit = true;
+                    Console.WriteLine("Exiting App...\n");
+                    //breaks the apps loop to exit the app
+                }
+
+                else{
+                    Console.WriteLine("Invalid option.\n");
+                }
+                //if none of the available options are entered then an error is diplayed
             }
         }
 
