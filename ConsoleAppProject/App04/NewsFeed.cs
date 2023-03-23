@@ -21,7 +21,6 @@ namespace ConsoleAppProject.App04
     public class NewsFeed
     {
         bool exit = false;
-        bool loggedIn = false;
         string menuChoice;
         public int postCount = -1;
         string user = "";
@@ -37,23 +36,28 @@ namespace ConsoleAppProject.App04
             Console.WriteLine(" =================================================\n");
             //creates the heading for the app and displays it to the user;
 
-            while(exit == false){
+            while (exit == false)
+            {
                 Menu();
                 //calls the Menu method
 
-                if (string.Equals(menuChoice, "1")){
-                //checks if the entred the first menu option
+                if (string.Equals(menuChoice, "1"))
+                {
+                    //checks if the entred the first menu option
                     Login();
                 }
             }
         }
-        
-        public void Menu(){
-            Console.Write("MAIN MENU\n1. log");
-            if(loggedIn == false){
+
+        public void Menu()
+        {
+            Console.Write("MAIN MENU\n1. Log");
+            if (string.Equals(user, ""))
+            {
                 Console.Write("in");
             }
-            else if(loggedIn == true){
+            else
+            {
                 Console.Write("out");
             }
             Console.Write("\n2. Add message post\n3. Add photo post\n4. Display all posts\n5. Display all posts by an author\n6. Exit App\n\nPlease enter your choice: ");
@@ -61,16 +65,17 @@ namespace ConsoleAppProject.App04
         }
         //takes the users input on which menu option they want
 
-        public void Login(){
-            if(loggedIn == false){
+        public void Login()
+        {
+            if (string.Equals(user, ""))
+            {
                 Console.Write("Enter your username to login: ");
                 user = Console.ReadLine();
-                loggedIn = true;
-                Console.WriteLine(user + " logged in.");
+                Console.WriteLine(user + " logged in.\n");
             }
-            else if(loggedIn == true){
-                Console.Write("logging out...");
-                loggedIn = false;
+            else
+            {
+                Console.WriteLine("Logged out.\n");
                 user = "";
             }
         }
