@@ -6,18 +6,11 @@ using System.Collections;
 namespace ConsoleAppProject.App04
 {
     ///<summary>
-    /// The NewsFeed class stores news posts for the news feed in a social network 
-    /// application.
-    /// 
-    /// Display of the posts is currently simulated by printing the details to the
-    /// terminal. (Later, this should display in a browser.)
-    /// 
-    /// This version does not save the data to disk, and it does not provide any
-    /// search or ordering functions.
+    /// This class contains the main method run running the social network app. It allows users to slect options from the menu
+    /// including logging in or out, create a message or image post and displaying all posts or posts by a certain user.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
-    ///  version 0.1
+    /// Ethan Smith
     ///</author> 
     public class NewsFeed
     {
@@ -27,9 +20,14 @@ namespace ConsoleAppProject.App04
         string menuChoice;
         static public string user = "";
         string userChoice;
+        string ID;
         static public ArrayList posts = new ArrayList();
         static public ArrayList author = new ArrayList();
 
+        ///<summary>
+        /// This method is the main method and is where all other classes and methods are called from, as well as where all the
+        /// checks for what the user has entered at the menu are done.
+        ///</summary>
         public void Run()
         {
             Console.WriteLine("\n =================================================");
@@ -39,19 +37,15 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("            This is an app to create             ");
             Console.WriteLine("         and view text and photo posts           ");
             Console.WriteLine(" =================================================\n");
-            //creates the heading for the app and displays it to the user;
 
             while (exit == false){
                 Menu();
-                //calls the Menu method
 
                 if (string.Equals(menuChoice, "1")){
-                //checks if the entred the first menu option
                     Login();
                 }
 
                 else if (string.Equals(menuChoice, "2")){
-                //checks if the entred the first menu option
                     if (string.Equals(user, "")){
                         Console.WriteLine("A User must be logged in to create a post.\n");
                     }
@@ -62,7 +56,6 @@ namespace ConsoleAppProject.App04
                 }
 
                 else if (string.Equals(menuChoice, "3")){
-                //checks if the entred the first menu option
                     if (string.Equals(user, "")){
                         Console.WriteLine("A User must be logged in to create a post.\n");
                     }
@@ -73,29 +66,32 @@ namespace ConsoleAppProject.App04
                 }
 
                 else if (string.Equals(menuChoice, "4")){
-                //checks if the entred the fourth menu option
-                    PostDisplay();
+                    RemovePost();
                 }
 
                 else if (string.Equals(menuChoice, "5")){
-                //checks if the entred the fifth menu option
+                    PostDisplay();
+                }
+
+                else if (string.Equals(menuChoice, "6")){
                     AuthorPostDisplay();
                 }
                 
-                else if (string.Equals(menuChoice, "6")){
-                //checks if the entred the sixth menu option
+                else if (string.Equals(menuChoice, "7")){
                     exit = true;
                     Console.WriteLine("Exiting App...\n");
-                    //breaks the apps loop to exit the app
                 }
 
                 else{
                     Console.WriteLine("Invalid option.\n");
                 }
-                //if none of the available options are entered then an error is diplayed
             }
         }
 
+        ///<summary>
+        /// This method creates the main menu, changing the first option depending on if the user is already logged in or not,
+        /// and then takes the user's input.
+        ///</summary>
         public void Menu()
         {
             Console.Write("MAIN MENU\n1. Log");
@@ -105,11 +101,14 @@ namespace ConsoleAppProject.App04
             else{
                 Console.Write("out");
             }
-            Console.Write("\n2. Add message post\n3. Add photo post\n4. Display all posts\n5. Display all posts by a user\n6. Exit App\n\nPlease enter your choice: ");
+            Console.Write("\n2. Add message post\n3. Add photo post\n4. Remove post\n5. Display all posts\n6. Display all posts by a user\n7. Exit App\n\nPlease enter your choice: ");
             menuChoice = Console.ReadLine();
         }
-        //takes the users input on which menu option they want
 
+        ///<summary>
+        /// This method is run after the user selects the login or logout option on the menu, and will prompt them to enter
+        /// their username to login if no one is already logged in, and will log them out if someone is already logged in.
+        ///</summary>
         public void Login()
         {
             if (string.Equals(user, "")){
@@ -128,6 +127,46 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public void RemovePost(){
+            if (string.Equals(user, "")){
+                Console.WriteLine("A User must be logged in to remove their posts.\n");
+            }
+            else if ((posts.Count-1) < 0){
+                Console.WriteLine("You haven't made any posts.\n");
+            }
+            else{
+                listCount = -1;
+                userPosts = false;
+                while(listCount < (posts.Count-1)){
+                    listCount++;
+                    if (string.Equals(author[listCount], user)){
+                        Console.WriteLine("\n" + posts[listCount] + "\n@" + author[listCount] + "\nPost ID: " + (listCount+1));
+                        userPosts = true;
+                    }
+                }
+                if (userPosts == false){
+                        Console.WriteLine("You haven't made any posts.\n");
+                }
+                else{
+                    Console.WriteLine("");
+                    Console.Write("Enter the ID of the post you want to remove, or enter nothing to cancel and return to the menu: ");
+                    ID = Console.ReadLine();
+                    if (string.Equals(ID, "")){
+                        Console.WriteLine("Returning to menu.\n");
+                    }
+                    else{
+                        posts.RemoveAt(Convert.ToInt32(ID) - 1);
+                        author.RemoveAt(Convert.ToInt32(ID) - 1);
+                        Console.WriteLine("Post Removed.\n");
+                    }
+                }
+            }
+        }
+
+        ///<summary>
+        /// This method will run after the user has selected the option to display all posts on the menu, and will run through
+        /// all the posts and display them with the user that posted them and the post ID underneath.
+        ///</summary>
         public void PostDisplay(){
             if ((posts.Count-1) < 0){
                 Console.WriteLine("No posts have been made.\n");
@@ -195,7 +234,7 @@ namespace ConsoleAppProject.App04
         {
             Console.Write("Please enter the URL for your image: ");
             imageContent = Console.ReadLine();
-            Console.Write("Please enter the cpation for your post: ");
+            Console.Write("Please enter the caption for your post: ");
             captionContent = Console.ReadLine();
             NewsFeed.posts.Add(imageContent + "\n" + captionContent);
             Post();
