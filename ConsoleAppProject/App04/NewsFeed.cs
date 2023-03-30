@@ -21,17 +21,14 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
-        Messages message = new Messages();
-        Images image = new Images();
         bool exit = false;
         bool userPosts;
-        public int postCount = -1;
         int listCount;
         string menuChoice;
-        public string user = "";
+        static public string user = "";
         string userChoice;
-        public ArrayList posts = new ArrayList();
-        public ArrayList author = new ArrayList();
+        static public ArrayList posts = new ArrayList();
+        static public ArrayList author = new ArrayList();
 
         public void Run()
         {
@@ -55,12 +52,24 @@ namespace ConsoleAppProject.App04
 
                 else if (string.Equals(menuChoice, "2")){
                 //checks if the entred the first menu option
-                    message.MessagePost();
+                    if (string.Equals(user, "")){
+                        Console.WriteLine("A User must be logged in to create a post.\n");
+                    }
+                    else{
+                        Messages message = new Messages();
+                        message.MessagePost();
+                    }
                 }
 
                 else if (string.Equals(menuChoice, "3")){
                 //checks if the entred the first menu option
-                    image.ImagePost();
+                    if (string.Equals(user, "")){
+                        Console.WriteLine("A User must be logged in to create a post.\n");
+                    }
+                    else{
+                        Images image = new Images();
+                        image.ImagePost();
+                    }
                 }
 
                 else if (string.Equals(menuChoice, "4")){
@@ -120,12 +129,12 @@ namespace ConsoleAppProject.App04
         }
 
         public void PostDisplay(){
-            if (postCount < 0){
+            if ((posts.Count-1) < 0){
                 Console.WriteLine("No posts have been made.\n");
             }
             else{
                 listCount = -1;
-                while(listCount < postCount){
+                while(listCount < (posts.Count-1)){
                     listCount++;
                     Console.WriteLine("\n" + posts[listCount] + "\n@" + author[listCount]);
                 }
@@ -134,7 +143,7 @@ namespace ConsoleAppProject.App04
         }
 
         public void AuthorPostDisplay(){
-            if (postCount < 0){
+            if ((posts.Count-1) < 0){
                 Console.WriteLine("No posts have been made.\n");
             }
             else{
@@ -142,9 +151,9 @@ namespace ConsoleAppProject.App04
                 userPosts = false;
                 Console.Write("Enter the username to see their posts: ");
                 userChoice = Console.ReadLine();
-                while(listCount < postCount){
+                while(listCount < (posts.Count-1)){
                     listCount++;
-                    if (string.Equals(author[listCount], "userChoice")){
+                    if (string.Equals(author[listCount], userChoice)){
                         Console.WriteLine("\n" + posts[listCount] + "\n@" + author[listCount]);
                         userPosts = true;
                     }
@@ -159,24 +168,21 @@ namespace ConsoleAppProject.App04
 
     public class Posts
     {
-        public NewsFeed feed = new NewsFeed();
         public string postContent;
 
-        public void EndPost()
-        {
-            feed.author[feed.postCount] = feed.user;
+        public void Post(){
+            NewsFeed.author.Add(NewsFeed.user);
             Console.WriteLine("Post Created.\n");
         }
     }
 
     public class Messages : Posts
     {
-        
         public void MessagePost()
         {
             Console.Write("Please enter the message for your post: ");
-            feed.posts[feed.postCount] = Console.ReadLine();
-            EndPost();
+            NewsFeed.posts.Add(Console.ReadLine());
+            Post();
         }
     }
 
@@ -191,8 +197,8 @@ namespace ConsoleAppProject.App04
             imageContent = Console.ReadLine();
             Console.Write("Please enter the cpation for your post: ");
             captionContent = Console.ReadLine();
-            feed.posts[feed.postCount] = imageContent + "\n" + captionContent;
-            EndPost();
+            NewsFeed.posts.Add(imageContent + "\n" + captionContent);
+            Post();
         }
     }
 }
