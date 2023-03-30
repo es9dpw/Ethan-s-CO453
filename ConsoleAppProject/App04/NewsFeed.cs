@@ -21,15 +21,17 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
+        Messages message = new Messages();
+        Images image = new Images();
         bool exit = false;
         bool userPosts;
-        int postCount = -1;
+        public int postCount = -1;
         int listCount;
         string menuChoice;
-        string user = "";
+        public string user = "";
         string userChoice;
-        ArrayList posts = new ArrayList();
-        ArrayList author = new ArrayList();
+        public ArrayList posts = new ArrayList();
+        public ArrayList author = new ArrayList();
 
         public void Run()
         {
@@ -51,12 +53,22 @@ namespace ConsoleAppProject.App04
                     Login();
                 }
 
-                if (string.Equals(menuChoice, "4")){
+                else if (string.Equals(menuChoice, "2")){
+                //checks if the entred the first menu option
+                    message.MessagePost();
+                }
+
+                else if (string.Equals(menuChoice, "3")){
+                //checks if the entred the first menu option
+                    image.ImagePost();
+                }
+
+                else if (string.Equals(menuChoice, "4")){
                 //checks if the entred the fourth menu option
                     PostDisplay();
                 }
 
-                if (string.Equals(menuChoice, "5")){
+                else if (string.Equals(menuChoice, "5")){
                 //checks if the entred the fifth menu option
                     AuthorPostDisplay();
                 }
@@ -142,6 +154,45 @@ namespace ConsoleAppProject.App04
                 }
                 Console.WriteLine("");
             }
+        }
+    }
+
+    public class Posts
+    {
+        public NewsFeed feed = new NewsFeed();
+        public string postContent;
+
+        public void EndPost()
+        {
+            feed.author[feed.postCount] = feed.user;
+            Console.WriteLine("Post Created.\n");
+        }
+    }
+
+    public class Messages : Posts
+    {
+        
+        public void MessagePost()
+        {
+            Console.Write("Please enter the message for your post: ");
+            feed.posts[feed.postCount] = Console.ReadLine();
+            EndPost();
+        }
+    }
+
+    public class Images : Posts
+    {
+        string imageContent;
+        string captionContent;
+
+        public void ImagePost()
+        {
+            Console.Write("Please enter the URL for your image: ");
+            imageContent = Console.ReadLine();
+            Console.Write("Please enter the cpation for your post: ");
+            captionContent = Console.ReadLine();
+            feed.posts[feed.postCount] = imageContent + "\n" + captionContent;
+            EndPost();
         }
     }
 }
