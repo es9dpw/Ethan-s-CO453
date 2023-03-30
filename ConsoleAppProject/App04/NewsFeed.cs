@@ -6,7 +6,7 @@ using System.Collections;
 namespace ConsoleAppProject.App04
 {
     ///<summary>
-    /// This class contains the main method run running the social network app. It allows users to slect options from the menu
+    /// This class contains the main method which runs the social network app. It allows users to select options from the menu
     /// including logging in or out, create a message or image post and displaying all posts or posts by a certain user.
     ///</summary>
     ///<author>
@@ -215,7 +215,7 @@ namespace ConsoleAppProject.App04
     }
 
     ///<summary>
-    /// This class contains is the parent class for the Messages and Images classes, and contains a method used to create
+    /// This class is the parent class for the Messages and Images classes, and contains a method used to create
     /// part of a post.
     ///</summary>
     ///<author>
@@ -234,7 +234,7 @@ namespace ConsoleAppProject.App04
     }
 
     ///<summary>
-    /// This class contains is a child class of the Posts class and is used when the user wants to create a message post.
+    /// This class is a child class of the Posts class and is used when the user wants to create a message post.
     ///</summary>
     ///<author>
     /// Ethan Smith
@@ -254,7 +254,7 @@ namespace ConsoleAppProject.App04
     }
 
     ///<summary>
-    /// This class contains is a child class of the Posts class and is used when the user wants to create an image post, and contains
+    /// This class is a child class of the Posts class and is used when the user wants to create an image post, and contains
     /// extra variables to take the image URL and caption to combine them into one text string.
     ///</summary>
     ///<author>
