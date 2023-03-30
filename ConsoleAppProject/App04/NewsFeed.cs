@@ -127,6 +127,11 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        ///<summary>
+        /// This method will run after the user has selected the option to remove a post they have made. It will check that a user
+        /// is logged in and that they have made any posts, and if they have it will display all their posts with an ID so that
+        /// the user can choose the ID of the post they want to remove.
+        ///</summary>
         public void RemovePost(){
             if (string.Equals(user, "")){
                 Console.WriteLine("A User must be logged in to remove their posts.\n");
@@ -165,7 +170,7 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// This method will run after the user has selected the option to display all posts on the menu, and will run through
-        /// all the posts and display them with the user that posted them and the post ID underneath.
+        /// all the posts and display them with the user that posted them underneath.
         ///</summary>
         public void PostDisplay(){
             if ((posts.Count-1) < 0){
@@ -181,6 +186,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        ///<summary>
+        /// This method will run after the user has selected the option to display all posts by a certain user on the menu, and will
+        /// run through all the posts and check if that specific user posted them and will display all the posts that user made.
+        ///</summary>
         public void AuthorPostDisplay(){
             if ((posts.Count-1) < 0){
                 Console.WriteLine("No posts have been made.\n");
@@ -205,18 +214,37 @@ namespace ConsoleAppProject.App04
         }
     }
 
+    ///<summary>
+    /// This class contains is the parent class for the Messages and Images classes, and contains a method used to create
+    /// part of a post.
+    ///</summary>
+    ///<author>
+    /// Ethan Smith
+    ///</author> 
     public class Posts
     {
-        public string postContent;
-
+        ///<summary>
+        /// This method adds to the array list containing the user that created each post, 
+        /// and then tells the user that the post was created.
+        ///</summary>
         public void Post(){
             NewsFeed.author.Add(NewsFeed.user);
             Console.WriteLine("Post Created.\n");
         }
     }
 
+    ///<summary>
+    /// This class contains is a child class of the Posts class and is used when the user wants to create a message post.
+    ///</summary>
+    ///<author>
+    /// Ethan Smith
+    ///</author>
     public class Messages : Posts
     {
+        ///<summary>
+        /// This method asks the user to enter the message for their post and then adds it to an array list containing all the
+        /// posts and then call the post method to add their username to another array to complete the post.
+        ///</summary>
         public void MessagePost()
         {
             Console.Write("Please enter the message for your post: ");
@@ -225,11 +253,23 @@ namespace ConsoleAppProject.App04
         }
     }
 
+    ///<summary>
+    /// This class contains is a child class of the Posts class and is used when the user wants to create an image post, and contains
+    /// extra variables to take the image URL and caption to combine them into one text string.
+    ///</summary>
+    ///<author>
+    /// Ethan Smith
+    ///</author>
     public class Images : Posts
     {
         string imageContent;
         string captionContent;
 
+        ///<summary>
+        /// This method asks the user to enter the image URL for their post and then the caption for the image. It then 
+        /// combines the image URL and caption into a single text string so it can add it to an array list containing all the
+        /// posts and then call the post method to add their username to another array to complete the post.
+        ///</summary>
         public void ImagePost()
         {
             Console.Write("Please enter the URL for your image: ");
